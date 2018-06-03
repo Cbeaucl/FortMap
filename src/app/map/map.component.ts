@@ -13,8 +13,7 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
     this._map = L.map('mapspot', {
-      crs: L.CRS.Simple,
-      minZoom: -5
+      minZoom: 1
     });
     var kaboom = L.icon({
       iconUrl: 'assets/images/explosion.png',
@@ -25,7 +24,8 @@ export class MapComponent implements OnInit {
     });
     var bounds: L.LatLngBoundsExpression
     bounds = [[0, 0], [1000, 1000]]
-    var image = L.imageOverlay('assets/images/theMap.jpg', bounds).addTo(this._map);
+    L.tileLayer('http://oyster.ignimgs.com/ignmedia/wikimaps/fortnite/season4v1-hi-res/{z}/{x}-{y}.jpg').addTo(this._map);
+    //var image = L.imageOverlay('assets/images/theMap.jpg', bounds).addTo(this._map);
     this._map.fitBounds(bounds);
 
     this._map.on('click', (e) => {
