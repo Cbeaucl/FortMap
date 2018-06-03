@@ -13,9 +13,10 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
     this._map = L.map('mapspot', {
-      crs: L.CRS.Simple
+      crs: L.CRS.Simple,
+      minZoom: -5
     });
-    var greenIcon = L.icon({
+    var kaboom = L.icon({
       iconUrl: 'assets/images/explosion.png',
 
       iconSize: [25, 25], // size of the icon
@@ -28,9 +29,7 @@ export class MapComponent implements OnInit {
     this._map.fitBounds(bounds);
 
     this._map.on('click', (e) => {
-      console.log(e.latlng);
-      console.log(this)
-      var marker = L.marker(e.latlng,{icon: greenIcon}).addTo(this._map);
+      var marker = L.marker(e.latlng,{icon: kaboom}).addTo(this._map);
       marker.on('click', () => {
         this._map.removeLayer(marker);
       })
