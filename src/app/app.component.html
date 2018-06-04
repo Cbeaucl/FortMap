@@ -1,3 +1,30 @@
+        <mat-toolbar color="primary">
+            <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+      
+          <h1>FortMap</h1>
+          </mat-toolbar>
+      
+<mat-sidenav-container >
+        <mat-sidenav #snav mode="over" opened>
+            <div style="padding: 10px">
+            <h2>Oh, Hello There</h2>
+            <p>Looks like you stumpled uppon my little app! 
+                It doesn't do much, just a quick app I put together to make it easy to track lots of objectives on a Fortnite map.
+            </p>
 
-<app-map></app-map>
+            <p>
+                Just click anywhere, and you'll get a litte marker. Click it again to make it disappear!
+            </p>
+
+            <p> Quick shout out to IGN's map that I yoinked for this. It's really cool and you should check it out! It has waaaay more info than this ol' thing.</p>
+
+            <h3><a style="color: blue" href="http://ca.ign.com/maps/fortnite/battle-royale-hi-res">That IGN Fortnite Map</a></h3>
+            </div>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <!--<app-playground></app-playground>-->
+            <app-map></app-map>
+        </mat-sidenav-content>
+</mat-sidenav-container>
+
   

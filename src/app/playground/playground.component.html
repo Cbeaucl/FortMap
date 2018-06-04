@@ -1,0 +1,17 @@
+<div style="height: 100px; padding: 5px">
+  <h3>{{ aTestState }}</h3>
+  <mat-form-field class="example-full-width">
+      <input 
+      (input)="onUpdate($event)"
+      matInput placeholder="This Button is neat" >
+  </mat-form-field>
+  
+  
+  
+  
+    <button (click)="onCreateServer()" 
+    color="primary" 
+    [disabled]="!allowNewStatus"
+    mat-raised-button>Property Binding</button>
+
+</div>

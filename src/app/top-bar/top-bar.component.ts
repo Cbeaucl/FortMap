@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./top-bar.component.css']
 })
 export class TopBarComponent implements OnInit {
+  allowNewStatus = false
+  testId: number = 10
 
-  constructor() { }
+  status: String = "SOOOO AWSOME"
+  constructor() { 
+    setTimeout(() => {
+      this.allowNewStatus = true
+    },2000)
+  }
 
   ngOnInit() {
   }
-
+  getThatStatus() {
+    return this.status
+  }
 }
