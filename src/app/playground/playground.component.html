@@ -1,17 +1,25 @@
-<div style="height: 100px; padding: 5px">
-  <h3>{{ aTestState }}</h3>
-  <mat-form-field class="example-full-width">
+<div style="padding: 5px">
+  <!-- EVENT BINDING EXAMPLE <mat-form-field class="example-full-width">
       <input 
       (input)="onUpdate($event)"
       matInput placeholder="This Button is neat" >
+  </mat-form-field>-->
+  <mat-form-field class="example-full-width">
+    <input (input)="onUpdate($event)" matInput placeholder="Two Way Binding Example"
+    [(ngModel)]="aTestState">
   </mat-form-field>
-  
-  
-  
-  
-    <button (click)="onCreateServer()" 
-    color="primary" 
-    [disabled]="!allowNewStatus"
-    mat-raised-button>Property Binding</button>
 
+  <button (click)="onCreateServer()" color="primary" [disabled]="!allowNewStatus" mat-raised-button>Property Binding</button>
+  <!--Structural Directive, ng if. Structural directives directly affect the DOM-->
+  <h2>{{ soRando }}</h2>
+
+  <h6 *ngIf="serverCreated; else elseTemplate">Uhhhh sup {{ status }}</h6>
+
+  <ng-template #elseTemplate>
+      <h6>WHASSAP</h6>
+  </ng-template>
+  
+  <p [ngStyle]="{backgroundColor: getColor()}">WHATEVE</p>  
+  
+  <p *ngFor="let cake of cakeListn">{{ cake }}</p>
 </div>
