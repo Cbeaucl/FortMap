@@ -18,6 +18,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FormCardComponent } from './form-card/form-card.component';
+import { MapFeatureListComponent } from './map-feature-list/map-feature-list.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { FormCardComponent } from './form-card/form-card.component';
     MapComponent,
     TopBarComponent,
     SideContentComponent,
-    FormCardComponent
+    FormCardComponent,
+    MapFeatureListComponent
   ],
   imports: [
     BrowserModule,
