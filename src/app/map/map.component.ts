@@ -8,13 +8,17 @@ import { Map } from 'leaflet';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-  protected _map: Map
+  protected _map: Map;
   constructor() { }
-
   ngOnInit() {
+    
+  }
+  ngAfterViewInit() {
     this._map = L.map('mapspot', {
       minZoom: 1
     });
+
+    
     var kaboom = L.icon({
       iconUrl: 'assets/images/explosion.png',
 
@@ -22,8 +26,11 @@ export class MapComponent implements OnInit {
       iconAnchor: [12, 12], // point of the icon which will correspond to marker's location
       popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
+    
     var bounds: L.LatLngBoundsExpression
+    
     bounds = [[0, 0], [1000, 1000]]
+    
     L.tileLayer('http://oyster.ignimgs.com/ignmedia/wikimaps/fortnite/season4v1-hi-res/{z}/{x}-{y}.jpg').addTo(this._map);
     //var image = L.imageOverlay('assets/images/theMap.jpg', bounds).addTo(this._map);
     this._map.fitBounds(bounds);

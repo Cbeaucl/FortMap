@@ -2,37 +2,24 @@
   <mat-card-title>The Form</mat-card-title>
   <mat-card-subtitle> BEHOLD IT'S AWESOMENESS!</mat-card-subtitle>
 
-  <mat-vertical-stepper #stepper>
-    <mat-step [stepControl]="firstFormGroup">
-      <form [formGroup]="firstFormGroup">
-        <ng-template matStepLabel>Fill out your name</ng-template>
-        <mat-form-field>
-          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
-    <mat-step [stepControl]="secondFormGroup">
-      <form [formGroup]="secondFormGroup">
-        <ng-template matStepLabel>Fill out your address</ng-template>
-        <mat-form-field>
-          <input matInput placeholder="Address" formControlName="secondCtrl" required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
-    <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
-      You are now done.
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
-      </div>
-    </mat-step>
-  </mat-vertical-stepper>
+  <form [formGroup]="mapFeatureForm">
+    <div style="display: flex; flex-direction: column">
+      <mat-form-field>
+        <input matInput formControlName="name" requried type="text" placeholder="Map Feature Title">
+      </mat-form-field>
+      <mat-form-field>
+        <textarea formControlName="description" name="feature-description"style="height: 100px" matInput placeholder="Feature Description"></textarea>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field>
+      <input matInput formControlName="latitude" placeholder="Latitude" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="longitude" placeholder="Longitude" />
+    </mat-form-field>
+    <div>
+      <button mat-raised-button color="primary">Add</button>
+    </div>
+  </form>
 </mat-card>
